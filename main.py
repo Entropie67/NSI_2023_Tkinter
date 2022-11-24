@@ -5,11 +5,18 @@ import tkinter as tk
 
 def coder():
     print("coucou")
+    v = text.get()
+    print(v)
+    sortie.set("#" + v + "#")
 
 
 root = tk.Tk()
+
 text = tk.StringVar()
-text.set("Hello World!")
+text.set("")
+sortie = tk.StringVar()
+sortie.set("")
+
 # Partie message clair.
 message_clair = tk.Frame()
 message_clair.grid(column=0, row=0, columnspan=6, rowspan=6)
@@ -28,7 +35,7 @@ message_chiffre = tk.Frame()
 message_chiffre.grid(column=7, row=0, columnspan=6, rowspan=6)
 titre = tk.Label(message_chiffre, text="Message chiffré")
 titre.grid(column=0, row=0, columnspan=3)
-saisie2 = tk.Entry(message_chiffre)
+saisie2 = tk.Entry(message_chiffre, textvariable=sortie)
 saisie2.grid(column=0, row=1, columnspan=3)
 bouton2 = tk.Button(message_chiffre, text="Déchiffrer")
 bouton2.grid(column=0, row=4, columnspan=6)
