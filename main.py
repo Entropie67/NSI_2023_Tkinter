@@ -2,13 +2,19 @@ import tkinter as tk
 
 
 # Fonction
+def decoder():
+    print("decode")
+    v =sortie.get()
+    print(v)
+    text.set(chiffrement(v, -2))
 
 def coder():
-    print("coucou")
+    print("code")
     v = text.get()
     print(v)
-    sortie.set("#" + v + "#")
+    sortie.set(chiffrement(v, 2))
 
+chiffrement = lambda message, cle: "".join([chr(ord(e)+cle) for e in list(message)])
 
 root = tk.Tk()
 
@@ -37,7 +43,7 @@ titre = tk.Label(message_chiffre, text="Message chiffré")
 titre.grid(column=0, row=0, columnspan=3)
 saisie2 = tk.Entry(message_chiffre, textvariable=sortie)
 saisie2.grid(column=0, row=1, columnspan=3)
-bouton2 = tk.Button(message_chiffre, text="Déchiffrer")
+bouton2 = tk.Button(message_chiffre, text="Déchiffrer", command=decoder)
 bouton2.grid(column=0, row=4, columnspan=6)
 
 
