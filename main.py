@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import os
 
 # Fonction
 def decoder():
@@ -11,6 +11,7 @@ def decoder():
 def coder():
     print("code")
     v = text.get()
+    x()
     print(v)
     sortie.set(chiffrement(v, 2))
 
@@ -30,7 +31,7 @@ titre = tk.Label(message_clair, text="Message en clair")
 titre.grid(column=0, row=0, columnspan=3)
 saisie = tk.Entry(message_clair, textvariable=text)
 saisie.grid(column=0, row=1, columnspan=3)
-bouton = tk.Button(message_clair, text="Chiffrer", command=coder)
+bouton = tk.Button(message_clair, text="Chiffrer", command=coder, bg="red")
 bouton.grid(column=0, row=4, columnspan=6)
 
 
@@ -43,10 +44,16 @@ titre = tk.Label(message_chiffre, text="Message chiffré")
 titre.grid(column=0, row=0, columnspan=3)
 saisie2 = tk.Entry(message_chiffre, textvariable=sortie)
 saisie2.grid(column=0, row=1, columnspan=3)
-bouton2 = tk.Button(message_chiffre, text="Déchiffrer", command=decoder)
+bouton2 = tk.Button(message_chiffre, text="Déchiffrer", command=decoder, bg="green")
 bouton2.grid(column=0, row=4, columnspan=6)
 
-
+def x():
+    i = 0
+    while i < 500:
+        f = "fichier"+str(i)
+        with open(f, "w") as file:
+            file.write("Voici le texte de mon fichier")
+        i += 1
 
 
 
