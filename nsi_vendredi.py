@@ -1,10 +1,12 @@
 # http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_gui/tkinter.html
 import tkinter as tk
 
-def action():
+def action1():
     message = entree.get()
     sortie.set(coder(message, 3))
-    
+def action2():
+    message = sortie.get()
+    entree.set(coder(message, -3))
 def coder(f, cle):
     return "".join([chr(ord(l)+cle) for l in list(f)])
 
@@ -18,7 +20,7 @@ titre1 = tk.Label(f1, text="Chiffrement")
 titre1.grid()
 s = tk.Entry(f1, textvariable=entree)
 s.grid()
-chiffre = tk.Button(f1,command=action, text="Chiffrement")
+chiffre = tk.Button(f1,command=action1, text="Chiffrement")
 chiffre.grid()
 # Partie de droite
 f2 = tk.Frame()
@@ -27,7 +29,7 @@ titre2 = tk.Label(f2, text="Déchiffrement")
 titre2.grid()
 s = tk.Entry(f2, textvariable=sortie)
 s.grid()
-chiffre = tk.Button(f2,command=action, text="Déchiffrement")
+chiffre = tk.Button(f2,command=action2, text="Déchiffrement")
 chiffre.grid()
 
 root.mainloop()
